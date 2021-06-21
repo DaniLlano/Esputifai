@@ -4,11 +4,11 @@ const resultados = document.getElementById("resultados");
 const masResultados = document.getElementById("masResultados");
 
 const URL = "https://api.lyrics.ovh";
-const CORS_URL = "https://cors-anywhere.herokuapp.com"
+const CORS_URL = "http://alloworigin.com/get?url="
 
 // buscar cancioncita
 const searchSong = (value) => {
-    fetch(`${CORS_URL}/${URL}/suggest/${value}`)
+    fetch(`${CORS_URL}${URL}/suggest/${value}`)
     .then((valor) => valor.json())
     .then((resultado) => pintarCanciones(resultado))
 }

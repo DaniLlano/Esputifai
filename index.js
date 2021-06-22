@@ -4,11 +4,10 @@ const resultados = document.getElementById("resultados");
 const masResultados = document.getElementById("masResultados");
 
 const URL = "https://api.lyrics.ovh";
-const CORS_URL = "http://alloworigin.com/get?url="
 
 // buscar cancioncita
 const searchSong = (value) => {
-    fetch(`${CORS_URL}${URL}/suggest/${value}`)
+    fetch(`${URL}/suggest/${value}`)
     .then((valor) => valor.json())
     .then((resultado) => pintarCanciones(resultado))
 }
@@ -44,7 +43,7 @@ const pintarCanciones = (resultado) => {
 }
 
 const masTemaikenes = async (dir) => {
-    const urlFetch = CORS_URL + dir;
+    const urlFetch = dir;
     const fetcheando = await fetch(urlFetch);
     const urlDef = await fetcheando.json();
     pintarCanciones(urlDef);
